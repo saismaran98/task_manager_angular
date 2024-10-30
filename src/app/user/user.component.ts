@@ -20,4 +20,9 @@ export class UserComponent {
     return 'assets/users/' + this.selectedUser.avatar
   }
 
+  onSelectedUser(){
+    const local_random_index = Math.floor(Math.random()* DUMMY_USERS.length)
+    this.selectedUser = DUMMY_USERS[local_random_index]
+  }
+
 }
