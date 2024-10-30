@@ -15,5 +15,9 @@ export class UserComponent {
   /* String Interpolation {{any_public_property_of_the_class}}  */
   selectedUser =  DUMMY_USERS[randomIndex] // declaring this vlaue selectedUser with out cosnt or let you are providing its value to the template i.e html which is called data binding. 
 
+  //getter for imagePath
+  get imagePath(){
+    return 'assets/users/' + this.selectedUser.avatar
+  }
 
 }
