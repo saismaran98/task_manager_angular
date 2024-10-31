@@ -14,6 +14,9 @@ import { CommonModule } from '@angular/common';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+onSelectedUser(id:string) {
+  console.log('selected user id is: '+id)
+}
   title = 'angular-project-udemy';
   users = DUMMY_USERS;
 
