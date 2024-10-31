@@ -1,8 +1,5 @@
-import { Component, computed, signal } from '@angular/core';
-import { DUMMY_USERS } from '../dummy-users';
+import { Component, Input} from '@angular/core';
 
-
-const randomIndex = Math.floor(Math.random()* DUMMY_USERS.length)
 
 @Component({
   selector: 'app-user',
@@ -12,14 +9,14 @@ const randomIndex = Math.floor(Math.random()* DUMMY_USERS.length)
   styleUrl: './user.component.css'
 })
 export class UserComponent {
-  /* String Interpolation {{any_public_property_of_the_class}}  */
-  selectedUser = signal(DUMMY_USERS[randomIndex]) // declaring this vlaue selectedUser with out cosnt or let you are providing its value to the template i.e html which is called data binding. 
-  imagePath = computed( () => 'assets/users/' + this.selectedUser().avatar) // when using signal
- 
+  @Input() avatar !: string; // this @Input make it settable from outside so we can set it from diff place, !: this will be set by outside value and not currently set. 
+  @Input() name !: string;
 
+  get imagePath(){
+    return 'assets/users/'+this.avatar;
+  }
   onSelectedUser(){
-    const local_random_index = Math.floor(Math.random()* DUMMY_USERS.length)
-    this.selectedUser.set(DUMMY_USERS[local_random_index]); // update the signal
+   
   }
 
 }
