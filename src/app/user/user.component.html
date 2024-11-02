@@ -1,11 +1,9 @@
 <div>
-  <button (click)="onSelectedUser() " >
+  <button [class.active]="selected" (click)="onSelectedUser()">
     <!-- data binding using [src]  -->
-    <img
-      [src]="imagePath"  
-      [alt]="user.name"
-    />
-    <span>{{user.name}}</span>    <!-- this is exammple of string interpolation {{public_value_of_clss_you_can_read.}}-->
-
+    <img [src]="imagePath" [alt]="user.name" />
+    <span>{{ user.name }}</span>
+    <!-- this is exammple of string interpolation {{public_value_of_clss_you_can_read.}}-->
   </button>
 </div>
+

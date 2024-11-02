@@ -7,12 +7,7 @@ import {
   output,
   Output,
 } from '@angular/core';
-
-interface User {
-  id: string;
-  avatar: string;
-  name: string;
-}
+import { type User } from './user.model'; //type User to denote its a type which is optional 
 
 // @Input: decorator, input: special function
 @Component({
@@ -24,6 +19,7 @@ interface User {
 })
 export class UserComponent {
   @Input({ required: true }) user!: User;
+  @Input({required: true}) selected !: boolean;
   @Output() userComponentEmmiter = new EventEmitter<string>(); //commonly used rather than output
 
   get imagePath() {
