@@ -2,12 +2,15 @@
 
 <main>
   <ul id="users">
-    <li *ngFor="let user of users">
+    <!-- what is track keyword, we give a key which is unique to render the users, here every id is uniq -->
+    @for ( user of users; track user.id){
+    <li>
       <app-user 
      [user]="user"
       (userComponentEmmiter)="onSelectedUser($event)"
       />
     </li>
+  }
   </ul>
 
   <!-- for a clicked user show assigned task. -->
