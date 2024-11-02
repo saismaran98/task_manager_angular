@@ -8,7 +8,7 @@ import {
   Output,
 } from '@angular/core';
 
-type User = {
+interface User {
   id: string;
   avatar: string;
   name: string;
