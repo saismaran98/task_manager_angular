@@ -8,6 +8,6 @@ import { Component, Input } from '@angular/core';
   styleUrl: './tasks.component.css'
 })
 export class TasksComponent {
-  @Input({required:true}) selectedUserName !: string;
+  @Input() selectedUserName?:string; // ?:string means it might not be initialised
 
 }

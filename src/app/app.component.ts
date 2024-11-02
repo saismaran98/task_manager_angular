@@ -25,7 +25,8 @@ export class AppComponent {
   selectedUserId = DUMMY_USERS[0].id;
 
   get selectedUser(){
-    return this.users.find(user => user.id === this.selectedUserId)!; //this.selectedUserId)!, ! if we dont find user we are returning undefined and task-component does not want undefined, we are telling tytpescript that this will not happen by using !
+    return this.users.find(user => user.id === this.selectedUserId);
+
   }
   onSelectedUser(id: string) {
     this.selectedUserId = id;
