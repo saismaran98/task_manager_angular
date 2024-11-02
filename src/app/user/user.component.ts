@@ -8,6 +8,12 @@ import {
   Output,
 } from '@angular/core';
 
+type User = {
+  id: string;
+  avatar: string;
+  name: string;
+}
+
 // @Input: decorator, input: special function
 @Component({
   selector: 'app-user',
@@ -17,11 +23,7 @@ import {
   styleUrl: './user.component.css',
 })
 export class UserComponent {
-  @Input({ required: true }) user!: {
-    id: string;
-    avatar: string;
-    name: string;
-  };
+  @Input({ required: true }) user!: User;
   @Output() userComponentEmmiter = new EventEmitter<string>(); //commonly used rather than output
 
   get imagePath() {
