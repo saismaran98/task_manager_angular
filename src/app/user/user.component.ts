@@ -5,7 +5,7 @@ import {
   Input,
   input,
   output,
-  Output
+  Output,
 } from '@angular/core';
 
 // @Input: decorator, input: special function
@@ -17,19 +17,20 @@ import {
   styleUrl: './user.component.css',
 })
 export class UserComponent {
-  @Input({ required: true }) id!: string;
-  @Input({ required: true }) avatar!: string; //with require:true use !: that assure there is a value. this @Input make it settable from outside so we can set it from diff place, !: this will be set by outside value and not currently set.
-  @Input({ required: true }) name!: string;
+  @Input({ required: true }) user!: {
+    id: string;
+    avatar: string;
+    name: string;
+  };
   @Output() userComponentEmmiter = new EventEmitter<string>(); //commonly used rather than output
-  
+
   get imagePath() {
-    return 'assets/users/' + this.avatar; //using signal make var a function call.
+    return 'assets/users/' + this.user.avatar; //using signal make var a function call.
   }
   onSelectedUser() {
-    this.userComponentEmmiter.emit(this.id);
+    this.userComponentEmmiter.emit(this.user.id);
   }
-  sendUserNames(){
-    this.userComponentEmmiter.emit(this.name);
+  sendUserNames() {
+    this.userComponentEmmiter.emit(this.user.name);
   }
-
 }

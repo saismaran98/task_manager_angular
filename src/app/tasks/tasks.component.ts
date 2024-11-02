@@ -8,6 +8,6 @@ import { Component, Input } from '@angular/core';
   styleUrl: './tasks.component.css'
 })
 export class TasksComponent {
-  @Input() selectedUserName :string | undefined; // selectedUserName is either string or it can be undefined, dont throw error. 
+  @Input() selectedUserName?:string; // ?:string means it might not be initialised 
 
 }
