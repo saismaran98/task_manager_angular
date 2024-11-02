@@ -12,7 +12,7 @@
 
   <!--if selected user is selected or present i.e not undefined, you can use if, else-->
   @if (selectedUser) {
-  <app-tasks [selectedUserName]="selectedUser ? selectedUser.name : ''" />
+  <app-tasks [userId]="selectedUser.id" [selectedUserName]="selectedUser ? selectedUser.name : ''" />
   <!-- if selectedUser is there you use it else use undefined -->
   <!--here you say if selected user is not prenset/undefined set it to empty string  '' selectedUser? selectedUser.name-->
   }@else {
