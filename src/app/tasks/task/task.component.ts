@@ -11,8 +11,12 @@ import { Task } from './task.model';
 export class TaskComponent {
   @Input({required:true}) task !: Task;
   @Output() complete = new EventEmitter<string>();
+  @Output() addedTask = new EventEmitter<string>();
 
   onCompleteTask(){
     this.complete.emit(this.task.id);
+  }
+  onAddTask(){
+    this.addedTask.emit(this.task.id);
   }
 }
